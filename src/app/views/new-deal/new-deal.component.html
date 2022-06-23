@@ -1,0 +1,53 @@
+<app-nav></app-nav>
+<div class="grid h-screen place-items-center">
+  <div class="md:grid md:grid-cols-3">
+    <div class="mt-5 md:mt-0 md:col-span-2">
+      <h3 class="flex justify-center">New Deal</h3>
+      <br><br>
+      <div *ngIf="!this.dealId">
+        <form [formGroup]="newDealForm">
+          <div class="shadow sm:rounded-md sm:overflow-hidden w-full">
+            <div class="px-10 py-5 bg-white space-y-6 sm:p-6">
+              <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-3 sm:col-span-2">
+                  <label for="company-website" class="block text-sm font-medium text-gray-700"> Name </label>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <input formControlName = "name" type="text" name="company-website" id="company-website" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="Deal Name">
+                  </div>
+                </div>
+              </div>
+              <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-3 sm:col-span-2">
+                  <label for="company-website" class="block text-sm font-medium text-gray-700"> Price in €</label>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <input formControlName = "price" type="number" name="company-website" id="company-website" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="Deal Name">
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label for="description" class="block text-sm font-medium text-gray-700"> Description </label>
+                <div class="mt-1">
+                  <textarea formControlName = "description" id="description" name="about" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="you@example.com"></textarea>
+                </div>
+              </div>
+              <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                <button (click)="registerDeal()" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Save</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div *ngIf="dealId">
+        <app-file-upload [id]="this.dealId" ></app-file-upload>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hidden sm:block" aria-hidden="true">
+  <div class="py-5">
+    <div class="border-t border-gray-200"></div>
+  </div>
+</div>
+
+
